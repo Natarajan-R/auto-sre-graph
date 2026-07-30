@@ -1,6 +1,6 @@
 import logging
 from typing import List, Dict, Any, Optional
-from src.mining.cluster_engine import _significant_tokens, token_tfidf_similarity, _extract_error_type
+from src.mining.cluster_engine import _significant_tokens, token_cosine_similarity, _extract_error_type
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +101,7 @@ class RunbookMatcher:
         scores = []
         for error_type, runbook in self._runbooks.items():
             type_tokens = _significant_tokens(error_type)
-            sim = token_tfidf_similarity(novel_tokens, type_tokens)
+            sim = token_cosine_similarity(novel_tokens, type_tokens)
             if sim > 0.01:
                 scores.append((sim, error_type, runbook))
 

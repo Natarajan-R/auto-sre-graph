@@ -39,7 +39,7 @@ def _significant_tokens(error_message: str) -> Dict[str, float]:
     return {tok: freq / max_freq for tok, freq in counter.items()}
 
 
-def token_tfidf_similarity(a_tokens: Dict[str, float], b_tokens: Dict[str, float]) -> float:
+def token_cosine_similarity(a_tokens: Dict[str, float], b_tokens: Dict[str, float]) -> float:
     if not a_tokens or not b_tokens:
         return 0.0
     common = set(a_tokens) & set(b_tokens)
@@ -91,7 +91,7 @@ class ClusterEngine:
             best_score = 0.0
 
             for i, ct in enumerate(cluster_tokens):
-                score = token_tfidf_similarity(tokens, ct)
+                score = token_cosine_similarity(tokens, ct)
                 if score > best_score:
                     best_score = score
                     best_idx = i

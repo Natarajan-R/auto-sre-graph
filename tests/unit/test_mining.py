@@ -6,7 +6,7 @@ from src.mining.cluster_engine import (
     _tokenize,
     jaccard_similarity,
     _significant_tokens,
-    token_tfidf_similarity,
+    token_cosine_similarity,
     _extract_error_type,
 )
 from src.mining.pattern_detector import compute_velocity
@@ -70,21 +70,21 @@ class TestTokenTFIDFSimilarity:
     def test_identical(self):
         a = {"db": 1.0, "timeout": 0.8}
         b = {"db": 1.0, "timeout": 0.8}
-        assert token_tfidf_similarity(a, b) == pytest.approx(1.0, rel=0.01)
+        assert token_cosine_similarity(a, b) == pytest.approx(1.0, rel=0.01)
 
     def test_no_overlap(self):
         a = {"db": 1.0}
         b = {"network": 1.0}
-        assert token_tfidf_similarity(a, b) == 0.0
+        assert token_cosine_similarity(a, b) == 0.0
 
     def test_partial(self):
         a = {"db": 1.0, "timeout": 0.8, "connection": 0.6}
         b = {"db": 1.0, "timeout": 0.9, "refused": 0.7}
-        sim = token_tfidf_similarity(a, b)
+        sim = token_cosine_similarity(a, b)
         assert 0.0 < sim < 1.0
 
     def test_empty(self):
-        assert token_tfidf_similarity({}, {"a": 1.0}) == 0.0
+        assert token_cosine_similarity({}, {"a": 1.0}) == 0.0
 
 
 class TestExtractErrorType:
