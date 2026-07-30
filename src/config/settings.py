@@ -67,7 +67,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: Optional[SecretStr] = Field(default=None)
     OPENAI_MODEL: str = "gpt-4"
     ANTHROPIC_API_KEY: Optional[SecretStr] = Field(default=None)
-    ANTHROPIC_MODEL: str = "claude-3-opus-20240229"
+    ANTHROPIC_MODEL: str = "claude-opus-5"
     AZURE_OPENAI_ENDPOINT: Optional[str] = Field(default=None)
     AZURE_OPENAI_API_KEY: Optional[SecretStr] = Field(default=None)
     AZURE_OPENAI_DEPLOYMENT: Optional[str] = Field(default=None)
