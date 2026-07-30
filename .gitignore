@@ -1,0 +1,37 @@
+# .gitignore
+# Environment variables (DO NOT COMMIT)
+.env
+.env.local
+.env.*.local
+*.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+*.log
+*.db
+*.sqlite3
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Docker
+*.container
+*.image
+docker-compose.override.yml
+
+# Project specific
+*.sre-*
+sre_cache/
+.coverage
+coverage.xml

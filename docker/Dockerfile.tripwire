@@ -1,0 +1,15 @@
+# docker/Dockerfile.tripwire
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir aiohttp
+
+COPY src/tools/tripwire.py /app/tripwire.py
+
+ENV PYTHONUNBUFFERED=1
+
+RUN useradd -m -u 1000 tripwire_user
+USER tripwire_user
+
+CMD ["python", "tripwire.py"]

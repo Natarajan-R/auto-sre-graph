@@ -1,0 +1,84 @@
+# requirements/base.txt
+# Core Dependencies for Auto-SRE-Graph
+
+# Python Version: 3.11+
+
+# Web Framework
+fastapi==0.141.1
+uvicorn==0.52.0
+python-multipart==0.0.32
+
+# Data Validation
+pydantic==2.13.4
+pydantic-settings==2.14.2
+pydantic-ai==2.20.0
+
+# Database
+psycopg==3.3.4
+psycopg-binary==3.3.4
+psycopg-pool==3.3.1
+asyncpg==0.29.0
+sqlalchemy==2.0.51
+
+# Graph Database
+neo4j==6.2.0
+
+# Vector Database
+qdrant-client==1.18.0
+
+# LLM & AI
+openai==2.50.0
+anthropic==0.120.2
+litellm==1.94.0
+langgraph==1.2.10
+langgraph-checkpoint-postgres==3.1.0
+langchain==1.3.14
+
+# Observability
+opentelemetry-api==1.44.0
+opentelemetry-sdk==1.44.0
+opentelemetry-exporter-otlp==1.44.0
+opentelemetry-instrumentation-fastapi==0.65b0
+opentelemetry-instrumentation-httpx==0.65b0
+opentelemetry-instrumentation-sqlalchemy==0.65b0
+opentelemetry-instrumentation-redis==0.65b0
+
+# HTTP & Async
+httpx==0.28.1
+aiohttp==3.14.3
+requests==2.34.2
+python-dateutil==2.9.0
+
+# Utilities
+python-dotenv==1.2.2
+pyyaml==6.0.3
+tenacity==9.1.4
+redis==8.0.1
+sentry-sdk==2.66.1
+aiofiles==25.1.0
+
+# Jira Integration
+jira==3.10.5
+
+# Token Counting
+tiktoken==0.13.0
+
+# Embeddings
+sentence-transformers==5.6.1
+transformers==5.14.1
+torch>=2.2.0
+
+# Cloud Services
+boto3==1.43.58
+azure-core==1.41.0
+azure-storage-blob==12.30.0
+
+# Monitoring
+prometheus-client==0.26.0
+
+# Health Checks
+healthcheck==1.3.0
+
+# Compression & Serialization
+orjson==3.11.9
+ujson==5.13.0

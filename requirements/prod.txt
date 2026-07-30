@@ -1,0 +1,21 @@
+# requirements/prod.txt
+# Production Dependencies
+
+-r base.txt
+
+# Production-specific optimizations
+gunicorn==21.2.0
+hiredis==2.0.0
+orjson==3.11.9
+ujson==5.13.0
+
+# Performance Monitoring
+prometheus-fastapi-instrumentator==6.1.0
+
+# Caching
+redis==8.0.1
+cachetools==7.1.6
+
+# Production Logging
+python-json-logger==2.0.7
+ecs-logging==2.1.0
