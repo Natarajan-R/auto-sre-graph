@@ -324,9 +324,10 @@ class DiagnosticAgent:
             prompt = self._build_prompt(alert, vector_context, graph_topology)
             
             # Select model based on complexity and cost
-            model_id = self.cost_manager.optimize_model_selection(
+            selected_model = self.cost_manager.optimize_model_selection(
                 required_complexity='high' if alert.severity.value in ['CRITICAL', 'HIGH'] else 'medium'
             )
+            logger.debug("Routing alert %s to model %s", alert.alert_id, selected_model)
             
             # Check if agent is available
             if self._agent is None:
