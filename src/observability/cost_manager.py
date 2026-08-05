@@ -9,11 +9,22 @@ from src.config.settings import settings
 logger = logging.getLogger(__name__)
 
 class CostManager:
-    """Manages and optimizes LLM usage costs."""
-    
+    """Manages and optimizes LLM usage costs.
+
+    IMPORTANT — the prices below are REFERENCE VALUES ONLY and are not kept
+    current. Vendor pricing changes often, and the rates here reflect a
+    particular moment in time. Before relying on any cost figure this class
+    produces, check the provider's current published pricing and update
+    ``cost_tiers``. Treat the output as an order-of-magnitude guide to relative
+    model cost, never as a billing figure.
+    """
+
     def __init__(self):
+        # Reference prices per 1K tokens. NOT CURRENT - see the class docstring.
+        # Update these from the provider's pricing page before trusting any
+        # number this class reports.
         self.cost_tiers = {
-            'gpt-4': {'input': 0.03, 'output': 0.06},  # per 1K tokens
+            'gpt-4': {'input': 0.03, 'output': 0.06},
             'gpt-3.5-turbo': {'input': 0.001, 'output': 0.002},
             'claude-3-opus': {'input': 0.015, 'output': 0.075},
             'claude-3-sonnet': {'input': 0.003, 'output': 0.015}
@@ -31,7 +42,15 @@ class CostManager:
     def record_usage(self, model: str, input_tokens: int, output_tokens: int):
         """Record LLM usage for cost tracking."""
         if model not in self.cost_tiers:
-            model = 'gpt-3.5-turbo'  # Default to cheapest if unknown
+            # Falling back silently would under-report spend by an order of
+            # magnitude, so say so loudly. Add the model to cost_tiers with its
+            # current published rates to get a meaningful figure.
+            logger.warning(
+                "no pricing entry for model %r - estimating with %r rates. "
+                "This figure is unreliable; add %r to cost_tiers using the "
+                "provider's current pricing.", model, 'gpt-3.5-turbo', model,
+            )
+            model = 'gpt-3.5-turbo'
         
         cost = (
             (input_tokens / 1000) * self.cost_tiers[model]['input'] +
