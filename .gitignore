@@ -42,3 +42,5 @@ chapter*.md
 CHAPTER_*.md
 *(Copy).md
 static_analysis_report*.md
+Log Parser.md
+log_analyzer_md
