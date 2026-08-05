@@ -34,13 +34,13 @@ class PipelineAlert(BaseModel):
     additional_context: Optional[Dict[str, Any]] = Field(None, description="Additional context from the pipeline")
     
     @validator('error_message')
-    def validate_error_message(cls, v):
+    def strip_excess_whitespace(cls, v):
         # Remove excessive whitespace and control characters
         v = re.sub(r'\s+', ' ', v).strip()
         return v
     
     @validator('stack_trace', pre=True)
-    def validate_stack_trace(cls, v):
+    def strip_ansi(cls, v):
         if v is None:
             return None
         # Remove ANSI escape sequences
