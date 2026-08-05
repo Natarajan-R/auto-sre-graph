@@ -52,6 +52,15 @@ python mining_demo_phase2.py     # persistence, scheduling, notifications
 python mining_demo_phase3.py     # forecasting and risk scoring
 ```
 
+## CI/CD
+
+The pipelines from Chapter 11 are in [`ci-cd/`](ci-cd/) — lint, the test suite
+against ephemeral Postgres, Neo4j and Qdrant containers, image build and Trivy
+scanning, then a gated deploy. They are **reference files that do not run**:
+GitHub Actions executes only what lives in `.github/workflows/`, so nothing here
+triggers on a push or expects a secret. [`ci-cd/README.md`](ci-cd/README.md)
+covers how to activate them.
+
 ## Reading this alongside the book
 
 Code listings in the book carry a header naming the file they came from:
