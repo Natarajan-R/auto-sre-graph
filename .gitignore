@@ -35,3 +35,10 @@ docker-compose.override.yml
 sre_cache/
 .coverage
 coverage.xml
+# Manuscript sources and drafting artifacts - these belong to the book repo,
+# never to the public companion code repo.
+session-*.md
+chapter*.md
+CHAPTER_*.md
+*(Copy).md
+static_analysis_report*.md
