@@ -112,7 +112,7 @@ Each one is a hands-on build with its code in the open.
 |---|---|---|
 | **Building a Local AI Coding Agent** | [US](https://www.amazon.com/dp/B0H8B6QXXX) · [IN](https://www.amazon.in/dp/B0H8B6QXXX) | [local-ai-coding-agent](https://github.com/Natarajan-R/local-ai-coding-agent) |
 | **Agentic AI — A Hands-On Guide** | [US](https://www.amazon.com/dp/B0H6R7SZZB) · [IN](https://www.amazon.in/dp/B0H6R7SZZB) | [agentic-ai-book](https://github.com/Natarajan-R/agentic-ai-book) |
-| **GraphRAG: Building an Intelligent Research Assistant with Knowledge Graphs** | [US](https://www.amazon.com/dp/B0H3QXVSY4) · [IN](https://www.amazon.in/dp/B0H3QXVSY4) | [graphrag-book-code](https://github.com/Natarajan-R/graphrag-book-code) |
+| **GraphRAG: Building an Intelligent Research Assistant** | [US](https://www.amazon.com/dp/B0H3QXVSY4) · [IN](https://www.amazon.in/dp/B0H3QXVSY4) | [graphrag-book-code](https://github.com/Natarajan-R/graphrag-book-code) |
 
 All titles → [Amazon author page](https://www.amazon.com/stores/author/B0H3T2MG83)
 
